@@ -1,0 +1,3 @@
+data/processed/files_upload/
+*.json
+*.jsonl
