@@ -118,6 +118,8 @@ We have also uploaded all the code
 
 ### ReRanker Training 
 
+We have uploaded the fine tuned modelt o huggingface. Use the tage Saisam/gpt-neo-math-small 
+
 The ReRanker training file is located on [reranker_train.ipynb](./src/models/reranker/reranker-train.ipynb)
 The ReRanker evaluation is located on [gpt_neo_eval.ipynb](./src/models/reranker/reranker-show.ipynb) 
 
