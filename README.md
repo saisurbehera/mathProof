@@ -6,7 +6,7 @@ We explore the application of transformer-based Language Models (LM) to automate
 # Data
 
 
-A large part of our code involves and build upon the work done at OpenAI. We further go a  step ahead and add all the packages heres. 
+A large part of our code involves and build upon the work done at OpenAI. We further go a  step ahead and add all the packages heres. Please open the processed folder in the data folder and unzip for the priocessed data.
 
 You can download the files with the proceesed data from the link below.
 
@@ -70,10 +70,8 @@ We finally train our model using the following command:
 ```
 fine_tunes.create  -t  data/processed/data_train_prepared.jsonl -v data/processed/data_valid_prepared.jsonl -m  ada 
 ```
-The code will train an model and give you a fine tuning id. Store the finetune id and use it to get the model.
-```
 
-We train an ada model feel free to change your model to babbage, curie or davinci.
+The code will train an model and give you a fine tuning id. Store the finetune id and use it to get the model. We train an ada model feel free to change your model to babbage, curie or davinci.
 
 Check your results of the fine  tuning by running the following command:
 ```
@@ -121,7 +119,7 @@ We have also uploaded all the code
 We have uploaded the fine tuned modelt o huggingface. Use the tage Saisam/gpt-neo-math-small 
 
 The ReRanker training file is located on [reranker_train.ipynb](./src/models/reranker/reranker-train.ipynb)
-The ReRanker evaluation is located on [gpt_neo_eval.ipynb](./src/models/reranker/reranker-show.ipynb) 
+The ReRanker evaluation is located on [reranker_show.ipynb](./src/models/reranker/reranker-show.ipynb) 
 
 
 # Results
