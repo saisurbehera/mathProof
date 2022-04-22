@@ -36,7 +36,7 @@ Please check the GPT-3 Folder under src/gpt3/ for how to train the model.
 
 
 
-### OpenAI Training 
+### OpenAI GPT-3 Fine Tuning
 
 
 OpenAI uses their own platform for fine tuning. We use command line application called `openai` to train the model. The command line application is available in the link below.
@@ -104,6 +104,33 @@ openai api completions.create -m ada:ft-personal-<name> -p <YOUR_PROMPT>
 ```
 
 
+### GPT-NEO Model
+
+The GPT-Neo training file is located on [gpt_neo.ipynb](./src/models/gpt_neo/gpt_neo.ipynb)
+The evaluation file is located on [gpt_neo_eval.ipynb](./src/models/gpt_neo/gptNEO_eval.ipynb), [neo_process.ipynb](./src/models/gpt_neo/neo_process.ipynb) and [neo_process_eval.ipynb](./src/models/gpt_neo/neo_process_eval.ipynb)
+
+The models weights and all the information can be found at:
+```
+https://drive.google.com/drive/folders/16A34CAxlvwBXNH733zFESogzx8WeA1ty?usp=sharing
+```
+
+We have also uploaded all the code 
+
+### ReRanker Training 
+
+The ReRanker training file is located on [reranker_train.ipynb](./src/models/reranker/reranker-train.ipynb)
+The ReRanker evaluation is located on [gpt_neo_eval.ipynb](./src/models/reranker/reranker-show.ipynb) 
+
+
+# Results
+
+In our process, we started by evaluating our model on MathBERT, based on our initial studies we have a loss of 3.15 and an training accuracy of 0.13 on our test set. Accuracy here refers the getting the tactic right. We had training loss as 3.164 and a loss of accuracy of 0.14 on the validation set. 
+
+To better see our process, please take a look at Figure 1 and Figure 2. Given the low accuracy of MathBERT, we selected GPT-3 and GPT-NEO to further fine-tune with the tactic proof dataset we selected. The training accuracy displayed below?? shows the GPT-adaMath model we trained achieved the highest accuracy of 36.27%. GPT-3 training result is more refined and have more similar queries while GPT- neo on average have worse accuracy but the result have high variance. We come up with the intuition to combine both to leverage the variance, at at the same time apply re-ranker to select the first 6 queries to improve the frequency. The combined model end up getting the highest accuracy of 45.92% compare to the benchmark from GPT-f with accuracy 32.2%.
+
+
+
+
 Project Organization
 ------------
 
@@ -116,7 +143,6 @@ Project Organization
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
@@ -136,19 +162,12 @@ Project Organization
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
     │   │
     │   ├── models         <- Scripts to train models and then use trained models to make
     │   │   │                 predictions
     │   │   ├── predict_model.py
     │   │   └── train_model.py
     │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
