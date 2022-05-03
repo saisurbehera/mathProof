@@ -83,6 +83,8 @@ Our resuls were:
 ```
 openai api fine_tunes.follow -i <finetuneid>
 ```
+
+```
 [2022-04-14 15:38:19] Created fine-tune: <finetuneid>
 [2022-04-14 15:39:29] Fine-tune costs $66.57
 [2022-04-14 15:39:29] Fine-tune enqueued. Queue number: 1
@@ -99,6 +101,8 @@ Job complete! Status: succeeded 🎉
 Try out your fine-tuned model:
 
 openai api completions.create -m ada:ft-personal-<name> -p <YOUR_PROMPT>
+
+```
 ```
 
 
