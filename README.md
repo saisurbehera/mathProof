@@ -103,7 +103,7 @@ Try out your fine-tuned model:
 openai api completions.create -m ada:ft-personal-<name> -p <YOUR_PROMPT>
 
 ```
-```
+
 
 
 ### GPT-NEO Model
